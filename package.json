@@ -1,0 +1,12 @@
+{
+  "name": "sf-listings-to-coveo",
+  "version": "0.1.0",
+  "description": "Generates a Coveo Listing Pages CSV from a Salesforce B2B Commerce product category hierarchy.",
+  "main": "generate-listings-csv.js",
+  "scripts": {
+    "start": "node generate-listings-csv.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
