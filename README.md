@@ -11,7 +11,7 @@ product category hierarchy.
    ```bash
    sf org login web --alias <alias>
    ```
-   e.g. `sf org login web --alias ecommpilot`
+   e.g. `sf org login web --alias your-org-alias`
 4. Clone this repo. No `npm install` is required — the script has no runtime
    dependencies.
 
@@ -19,17 +19,17 @@ product category hierarchy.
 
 ```bash
 node generate-listings-csv.js \
-  --org andersentest \
-  --base-url "https://andersen--test.sandbox.my.site.com/AndersenPartsStore" \
-  --prefix partsstore-test
+  --org your-org-alias \
+  --base-url "https://orgname.sandbox.my.site.com/YourStore" \
+  --prefix mystore-export
 ```
 
 | Argument | Required | Description | Example |
 |---|---|---|---|
-| `--org` | Yes | SF CLI target org alias | `andersentest` |
-| `--base-url` | Yes | Storefront base URL (no trailing slash) | `https://andersen.my.site.com/AndersenPartsStore` |
-| `--prefix` | Yes | Output filename prefix | `partsstore-test` |
-| `--webstore-name` | No | WebStore name (default: `Andersen Parts Store`) | |
+| `--org` | Yes | SF CLI target org alias | `your-org-alias` |
+| `--base-url` | Yes | Storefront base URL (no trailing slash) | `https://orgname.my.site.com/YourStore` |
+| `--prefix` | Yes | Output filename prefix | `mystore-export` |
+| `--webstore-name` | No | WebStore name (default set in `lib/args.js`) | |
 | `--output-dir` | No | Output directory (default: current working dir) | |
 
 The CSV is written to `{prefix}-listings-export-{yyyy-MM-dd-HHmmss}.csv`.
