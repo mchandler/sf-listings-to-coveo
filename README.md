@@ -1,16 +1,19 @@
 # sf-listings-to-coveo
 
 Generates a Coveo-compatible Listing Pages CSV from a Salesforce B2B Commerce
-product category hierarchy. Replaces the per-environment Python scripts.
+product category hierarchy.
 
-## Prerequisites
+## Setup
 
-- Node.js 18+
-- SF CLI installed and authenticated to each target org:
-  `sf org login web --alias <name>`
-
-No Salesforce metadata is required. The script queries `WebStoreCatalog` and
-`ProductCategory` records via the SF CLI.
+1. Install Node.js 18 or newer.
+2. Install the Salesforce CLI: `npm install -g @salesforce/cli`
+3. Authenticate to each target org:
+   ```bash
+   sf org login web --alias <alias>
+   ```
+   e.g. `sf org login web --alias ecommpilot`
+4. Clone this repo. No `npm install` is required — the script has no runtime
+   dependencies.
 
 ## Usage
 
@@ -31,29 +34,7 @@ node generate-listings-csv.js \
 
 The CSV is written to `{prefix}-listings-export-{yyyy-MM-dd-HHmmss}.csv`.
 
-## Behavior
-
-1. Query `WebStoreCatalog` to get the `ProductCatalogId` for the named WebStore.
-2. Query all `ProductCategory` records in that catalog where
-   `IsNavigational = true` (the "Show In Menu" filter).
-3. Build pipe-delimited ancestor paths starting from each root.
-4. Emit one CSV row per category. Both roots and subcategories use
-   `FilterOperator = contains` with `FilterValue` equal to the path. The root
-   is included in the path for every row.
-5. Sort rows by `Name` and write to disk.
-
-## CSV columns
-
-| Column | Value |
-|---|---|
-| `Name` | Pipe-delimited path from root to this category |
-| `UrlPattern` | `{base-url}/category/{slug-segments}/{CategoryId}` |
-| `FilterField` | `ec_category` |
-| `FilterValue` | Same as `Name` |
-| `FilterOperator` | `contains` |
-| `Language` / `Country` / `Currency` | empty |
-
-## Environment reference
+### Environment reference
 
 | Org Alias | Base URL | Prefix |
 |---|---|---|
