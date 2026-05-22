@@ -33,12 +33,3 @@ node generate-listings-csv.js \
 | `--output-dir` | No | Output directory (default: current working dir) | |
 
 The CSV is written to `{prefix}-listings-export-{yyyy-MM-dd-HHmmss}.csv`.
-
-### Environment reference
-
-| Org Alias | Base URL | Prefix |
-|---|---|---|
-| `ecommpilot` | `https://andersen--ecommpilot.sandbox.my.site.com/AndersenPartsStore` | `partsstore-ecommpilot` |
-| `andersentest` | `https://andersen--test.sandbox.my.site.com/AndersenPartsStore` | `partsstore-test` |
-| `andersenstage` | `https://andersen--stage.sandbox.my.site.com/AndersenPartsStore` | `partsstore-stage` |
-| `andersenprod` | `https://andersen.my.site.com/AndersenPartsStore` | `partsstore` |
