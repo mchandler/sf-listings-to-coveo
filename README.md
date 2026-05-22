@@ -21,7 +21,8 @@ product category hierarchy.
 node generate-listings-csv.js \
   --org your-org-alias \
   --base-url "https://orgname.sandbox.my.site.com/YourStore" \
-  --prefix mystore-export
+  --prefix mystore-export \
+  --webstore-name "Your WebStore Name"
 ```
 
 | Argument | Required | Description | Example |
@@ -29,7 +30,7 @@ node generate-listings-csv.js \
 | `--org` | Yes | SF CLI target org alias | `your-org-alias` |
 | `--base-url` | Yes | Storefront base URL (no trailing slash) | `https://orgname.my.site.com/YourStore` |
 | `--prefix` | Yes | Output filename prefix | `mystore-export` |
-| `--webstore-name` | No | WebStore name (default set in `lib/args.js`) | |
+| `--webstore-name` | Yes | WebStore Name to look up (exact match) | `Your WebStore Name` |
 | `--output-dir` | No | Output directory (default: current working dir) | |
 
 The CSV is written to `{prefix}-listings-export-{yyyy-MM-dd-HHmmss}.csv`.
